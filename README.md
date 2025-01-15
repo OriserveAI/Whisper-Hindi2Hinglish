@@ -1,5 +1,5 @@
 # Whisper-Hindi2Hinglish
-Whisper-Hindi2Hinglish is a variant of OpenAI's Whisper, designed for precise, speech recognition of audios with Indian accents and heavy background noise in Hinglish language. It is trained on Hindi and Hinglish data and is optimized for use cases where accuracy is paramount and background noise is abundant (such as those found in the Indian market). To improve transcription on Hindi language, we finetuned Whisper-Hindi2Hinglish using a custom built proprietary dataset.
+Whisper-Hindi2Hinglish is a variant of OpenAI's Whisper, designed for precise, speech recognition of audios with Indian accents and heavy background noise in Hinglish (Hindi written in latin script) language. It is trained on Hindi and Hinglish data and is optimized for use cases where accuracy is paramount and background noise is abundant (such as those found in the Indian market). To improve transcription on Hindi language, we finetuned Whisper-Hindi2Hinglish using a custom built proprietary dataset.
 
 ## Problem Statement:
 
