@@ -48,6 +48,19 @@ The above reasons were some of the main motivations behind training the Whisper-
 3. Better Noise handling: The model is resistant to noise and thus does not return transcriptions for audio with just noise
 4. Hallucination Mitigation: Minimizes transcription hallucinations to enhance accuracy.
 
+## Relased Models:
+
+We have open sourced two models [Oriserve/Whisper-Hindi2Hinglish-Prime](https://huggingface.co/Oriserve/Whisper-Hindi2Hinglish-Prime) and [Oriserve/Whisper-Hindi2Hinglish-Swift](https://huggingface.co/Oriserve/Whisper-Hindi2Hinglish-Swift). Under the `Whisper-Hindi2Hinglish` family of models.
+- Prime Model Highlights
+    - Superior noise resistance for cleaner transcriptions
+    - Advanced hallucination mitigation
+    - Enhanced accuracy across benchmark datasets
+    - Lightning fast inference time and low latency streaming
+- Swift Model Highlights
+    - Optimised for faster processing
+    - Robust hallucination prevention
+    - Exceptional performance metrics
+
 ## Performance Overview
 #### Qualitative Performance Overview
 | Audio | Whisper Large V3 | Whisper-Hindi2Hinglish-Prime |
