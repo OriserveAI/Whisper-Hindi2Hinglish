@@ -1,20 +1,20 @@
-# Whisper-Hindi2Hinglish
-Whisper-Hindi2Hinglish is a variant of OpenAI's Whisper, designed for precise, speech recognition of audios with Indian accents and heavy background noise in Hinglish (Hindi written in latin script) language. It is trained on Hindi and Hinglish data and is optimized for use cases where accuracy is paramount and background noise is abundant (such as those found in the Indian market). To improve transcription on Hindi language, we finetuned Whisper-Hindi2Hinglish using a custom built proprietary dataset.
+# **Whisper-Hindi2Hinglish**
+Whisper-Hindi2Hinglish is a variant of OpenAI's Whisper, designed for precise, speech recognition of audios with Indian accents and heavy background noise in Hinglish (Hindi written in Latin scripture) language. It is trained on Hindi and Hinglish data and is optimized for use cases where accuracy is paramount and background noise is abundant (such as those found in typical Indian background sounds). To improve transcription on Hindi language, we finetuned **Whisper-Hindi2Hinglish** using a custom-built proprietary dataset.
 
-## Problem Statement:
+## **Problem Statement**:
 
 - Existing ASR systems demonstrate significant limitations in accurately transcribing Indian speech, particularly Hindi and Hinglish conversations, leading to poor performance in real-world applications
     - Models perform inadequately with natural Indian accents and conversational patterns
     - Current systems struggle with background noise common in real-world Indian audio recordings
     - Available Hindi datasets are primarily recorded in controlled environments with scripted speech, making them unsuitable for practical applications
 
-- Traditional Hindi transcription systems outputting Devanagari script face critical challenges:
+- Traditional Hindi transcription systems generating Devanagari scripture face critical challenges:
     - Minor transcription errors can result in completely different meanings of words and sentences
     - Integration with modern LLMs becomes complicated due to script incompatibility
     - Misalignment with user preferences, as most Indian internet users communicate in Hinglish rather than pure Hindi
 
 
-- There is a significant gap in the market for an ASR system that can:
+- There is a significant gap in the Speech market for an ASR system that can:
     - Process and accurately transcribe Indian accents and natural conversational patterns
     - Maintain consistent performance even with substantial background noise
     - Output transcriptions in Hinglish to align with real-world usage patterns
@@ -26,17 +26,17 @@ Whisper-Hindi2Hinglish is a variant of OpenAI's Whisper, designed for precise, s
     - Developing effective voice-based applications for the Indian market
     - Building reliable voice-based interfaces for various applications
 
-## Motivation:
+## **Motivation**:
 
 - Current state-of-the-art ASR (Automatic Speech Recognition) models exhibit a significant bias towards Western languages due to the abundant availability of high-quality training data for these languages.
 - While Hindi language data exists, it suffers from several quality issues:
     - Most recordings are made in controlled environments with minimal background noise
-    - Data is primarily non-conversational in nature
-    - Recordings typically feature speakers talking directly into microphones, and verbatim reading a script making the nature of the audios unnatural
+    - Data is primarily non-conversational
+    - Recordings typically feature speakers talking directly into microphones, and verbatim reading a script making the nature of the audio unnatural
     - These limitations make it difficult to train models that can handle real-world Indian accents with abundant background noise
-- The crowdsourced nature of available Hindi datasets results in lower accuracy compared to English language datasets.
+- The crowdsourced nature of available Hindi datasets results in lower accuracy than English.
 - There is a strong case for developing models that can transcribe audio into Hinglish (Hindi written in Latin script) because:
-    - It reduces the likelihood of grammatical errors in transcriptions. As in case of Hindi even a small mistake can lead to a completely different meaning of the sentence. Example: बाल (baal) - "hair" vs बल (bal) - "strength", दिन (din) - "day" vs दीन (deen) - "poor/humble" etc.
+    - It reduces the likelihood of grammatical errors in transcriptions. As in the case of Hindi, even a small mistake can lead to a completely different sentence meaning. Example: बाल (baal) - "hair" vs बल (bal) - "strength", दिन (din) - "day" vs दीन (deen) - "poor/humble" etc.
     - It enables better comprehension by Large Language Models (LLMs)
     - It aligns with actual usage patterns, as most Indian internet users communicate in Hinglish rather than Hindi in Devanagari script
 
@@ -45,7 +45,7 @@ The above reasons were some of the main motivations behind training the Whisper-
 ## Key Features:
 1. Hinglish as a language: Added ability to transcribe audio into spoken Hinglish language reducing chances of grammatical errors
 2. Whisper Architecture: Based on the whisper architecture making it easy to use with the transformers package
-3. Better Noise handling: The model is resistant to noise and thus does not return transcriptions for audios with just noise
+3. Better Noise handling: The model is resistant to noise and thus does not return transcriptions for audio with just noise
 4. Hallucination Mitigation: Minimizes transcription hallucinations to enhance accuracy.
 
 ## Performance Overview
@@ -172,7 +172,7 @@ python client_mic.py --uri <uri> --device-index <device-index> --chunk-duration 
 
 ### Finetuning:
 - **Custom Dynamic Layer Freezing**:
-    - Using `pytorch` hooks , we ran inference on a subset of the training data to collect data about layer activations.
+    - Using `pytorch` hooks, we ran inference on a subset of the training data to collect data about layer activations.
     - We then analyzed the layer activation data and identified a subset of layers that were most active during inference, as the ones being most responsible for generating the transcriptions.
     - These layers were then kept unfrozen during the training process while all the other layers were kept frozen.
     - This enabled faster convergence and efficient finetuning.
@@ -181,7 +181,7 @@ python client_mic.py --uri <uri> --device-index <device-index> --chunk-duration 
     - To finetune the model we developed a custom trainer that was specifically designed to train the model.
     - The trainer was designed to be modular and extensible, allowing for easy addition of new functionalities, such as custom callbacks, custom optimizers, and custom dataloaders.
     - There were several custom callbacks that were added to the trainer to enable higher observability during the training process.
-    - At every validation epoch, the model was evaluated on an unseen data, that was not used during training. This allowed us to monitor the model's performance on unseen data as most of the time the model would perform have to perform on unseen data.
+    - At every validation epoch, the model was evaluated on unseen data, that was not used during training. This allowed us to monitor the model's performance on unseen data as most of the time the model would have to perform on unseen data.
 
 ## Miscellaneous
 This model is from a family of transformers-based ASR models trained by Oriserve. To compare this model against other models from the same family or other SOTA models please head to our [Speech-To-Text Arena](https://huggingface.co/spaces/Oriserve/ASR_arena). To learn more about our other models, and other queries regarding AI voice agents you can reach out to us at our email [ai-team@oriserve.com](ai-team@oriserve.com)
